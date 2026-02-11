@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gallery — NeverEndz Salon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+<header class="header">
+  <div class="container nav">
+    <a class="logo" href="index.html">
+      <span class="logo-mark">NE</span>
+      <span class="logo-text">Never<em>Endz</em> Salon</span>
+    </a>
+    <nav class="nav-links" id="nav-links">
+      <a href="services.html">Services</a>
+      <a href="stylists.html">Stylists</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+      <a class="btn btn--primary nav-cta" href="book.html">Book</a>
+    </nav>
+    <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero hero--sub">
+    <div class="container">
+      <div class="stack gap-2 reveal">
+        <span class="chip chip--soft">Gallery</span>
+        <h1 class="display">Soft color, clean cuts, calm nails.</h1>
+        <p class="lead">
+          A peek at the kinds of looks we create every week. Nothing overly filtered — just real hair and nails in good light.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="masonry-grid js-lightbox-gallery reveal">
+        <img src="images/look-1.jpg" alt="Soft blonde balayage" data-full="images/look-1.jpg" />
+        <img src="images/look-2.jpg" alt="Textured bob haircut" data-full="images/look-2.jpg" />
+        <img src="images/look-3.jpg" alt="Minimal gel manicure" data-full="images/look-3.jpg" />
+        <img src="images/stylist-1.jpg" alt="Client hair after color" data-full="images/stylist-1.jpg" />
+        <img src="images/stylist-2.jpg" alt="Soft waves and fringe" data-full="images/stylist-2.jpg" />
+        <img src="images/stylist-3.jpg" alt="Neutral short nails" data-full="images/stylist-3.jpg" />
+      </div>
+
+      <p class="muted tiny centered">
+        For more daily photos, visit us on
+        <a href="https://www.facebook.com/search/top?q=neverendz%20salon" target="_blank" rel="noopener">Facebook</a>.
+      </p>
+    </div>
+  </section>
+</main>
+
+<!-- Lightbox overlay (re-used sitewide) -->
+<div id="lb" class="lightbox">
+  <img id="lb-img" alt="" />
+</div>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <strong>NeverEndz Salon</strong>
+      <p class="muted tiny">7100 Dixie Hwy • Florence, KY 41042</p>
+    </div>
+    <div class="footer-actions">
+      <a href="https://www.facebook.com/search/top?q=neverendz%20salon" class="btn btn--ghost tiny" target="_blank" rel="noopener">Facebook</a>
+      <a href="book.html" class="btn btn--primary tiny">Book online</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="muted tiny">© <span id="year"></span> NeverEndz Salon.</span>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>

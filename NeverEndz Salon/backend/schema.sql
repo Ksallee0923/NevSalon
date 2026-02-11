@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS appointments (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  date TEXT NOT NULL,
+  time TEXT NOT NULL,
+  stylist TEXT NOT NULL,
+  service TEXT NOT NULL,
+  duration INTEGER NOT NULL,
+  name TEXT NOT NULL,
+  phone TEXT NOT NULL,
+  notes TEXT
+);
