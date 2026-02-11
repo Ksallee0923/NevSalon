@@ -38,6 +38,22 @@ a {
   color: inherit;
 }
 
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 img {
   max-width: 100%;
   display: block;
@@ -63,6 +79,7 @@ nav,
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   gap: 20px;
   padding: 18px 0;
 }
@@ -84,7 +101,7 @@ nav a:hover,
 .header .nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 20px;
   min-height: 76px;
 }
@@ -560,6 +577,7 @@ footer,
     padding: 14px 0;
   }
 
+  nav,
   .nav-links {
     width: 100%;
     justify-content: center;
@@ -574,15 +592,28 @@ footer,
   }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 760px) {
+  .container {
+    width: min(1100px, 94%);
+  }
+
   nav,
   .nav-links {
-    gap: 12px;
-    padding: 14px 0;
+    gap: 10px 12px;
+    padding: 12px 0;
+  }
+
+  nav a,
+  .nav-links a {
+    font-size: 0.88rem;
   }
 
   .hero {
-    min-height: 58vh;
+    min-height: 56vh;
+  }
+
+  .hero-content {
+    padding-inline: 8px;
   }
 
   .gallery-carousel {
@@ -596,5 +627,11 @@ footer,
   section,
   .section {
     padding: 56px 16px;
+  }
+
+  .footer-actions {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
