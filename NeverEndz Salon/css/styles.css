@@ -477,7 +477,6 @@ section p,
 .gallery-stage img {
   width: 100%;
   aspect-ratio: 4 / 5;
-  min-height: 320px;
   object-fit: cover;
   border-radius: 12px;
   display: none;
@@ -667,55 +666,16 @@ footer,
     min-height: 56vh;
   }
 
-  .hero-content {
-    padding-inline: 8px;
-  }
-
-  .hero .buttons {
-    width: 100%;
-  }
-
-  .hero .buttons a {
-    flex: 1 1 160px;
-  }
-
-  .home-highlights {
-    grid-template-columns: 1fr;
-  }
-
   .gallery-carousel {
     grid-template-columns: 1fr;
-    gap: 10px;
   }
 
   .gallery-control {
-    width: 100%;
-    max-width: 240px;
-    height: 42px;
-    font-size: 1.25rem;
     justify-self: center;
   }
 
-  .gallery-control.prev {
-    order: 2;
-  }
-
-  .gallery-stage {
-    order: 1;
-  }
-
-  .gallery-control.next {
-    order: 3;
-  }
-
-  .footer-grid {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .footer-actions {
-    width: 100%;
-    flex-wrap: wrap;
-    justify-content: center;
+  section,
+  .section {
+    padding: 56px 16px;
   }
 }

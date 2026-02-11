@@ -34,7 +34,6 @@ const carouselSlides = document.querySelectorAll('.gallery-stage img');
 const prevButton = document.querySelector('.gallery-control.prev');
 const nextButton = document.querySelector('.gallery-control.next');
 const thumbButtons = document.querySelectorAll('.gallery-thumbs button');
-const galleryStage = document.querySelector('.gallery-stage');
 let currentIndex = 0;
 
 function updateThumbState(index) {
@@ -87,20 +86,6 @@ if (carouselSlides.length > 0) {
       }
     });
   });
-
-  if (galleryStage) {
-    galleryStage.addEventListener('keydown', (event) => {
-      if (event.key === 'ArrowRight') {
-        event.preventDefault();
-        nextSlide();
-      }
-
-      if (event.key === 'ArrowLeft') {
-        event.preventDefault();
-        prevSlide();
-      }
-    });
-  }
 }
 
 const yearEl = document.getElementById('year');
