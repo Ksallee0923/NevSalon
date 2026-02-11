@@ -2,28 +2,62 @@
 // NeverEndz Salon – Shared front-end scripts
 // ==========================================
 
-const slides = document.querySelectorAll('.gallery img');
+const carouselSlides = document.querySelectorAll('.gallery-stage img');
+const prevButton = document.querySelector('.gallery-control.prev');
+const nextButton = document.querySelector('.gallery-control.next');
+const thumbButtons = document.querySelectorAll('.gallery-thumbs button');
 let currentIndex = 0;
 
+function updateThumbState(index) {
+  thumbButtons.forEach((button) => {
+    button.classList.toggle('is-active', Number(button.dataset.slide) === index);
+  });
+}
+
 function showSlide(index) {
-  slides.forEach((slide) => slide.classList.remove('active'));
-  slides[index].classList.add('active');
+  if (!carouselSlides.length) return;
+
+  carouselSlides.forEach((slide, slideIndex) => {
+    const isActive = slideIndex === index;
+    slide.classList.toggle('active', isActive);
+    slide.setAttribute('aria-hidden', String(!isActive));
+  });
+
+  currentIndex = index;
+  updateThumbState(index);
 }
 
 function nextSlide() {
-  if (!slides.length) return;
-  currentIndex = (currentIndex + 1) % slides.length;
-  showSlide(currentIndex);
+  if (!carouselSlides.length) return;
+  const index = (currentIndex + 1) % carouselSlides.length;
+  showSlide(index);
 }
 
 function prevSlide() {
-  if (!slides.length) return;
-  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-  showSlide(currentIndex);
+  if (!carouselSlides.length) return;
+  const index = (currentIndex - 1 + carouselSlides.length) % carouselSlides.length;
+  showSlide(index);
 }
 
-if (slides.length > 0) {
+if (carouselSlides.length > 0) {
   showSlide(currentIndex);
+
+  if (nextButton) {
+    nextButton.addEventListener('click', nextSlide);
+  }
+
+  if (prevButton) {
+    prevButton.addEventListener('click', prevSlide);
+  }
+
+  thumbButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const index = Number(button.dataset.slide);
+      if (!Number.isNaN(index)) {
+        showSlide(index);
+      }
+    });
+  });
 }
 
 const yearEl = document.getElementById('year');
