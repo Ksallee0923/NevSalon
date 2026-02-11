@@ -37,13 +37,28 @@
 
   <section class="section">
     <div class="container">
-      <div class="masonry-grid js-lightbox-gallery reveal">
-        <img src="images/gallery-1.jpg" alt="Dimensional blonde hair color" data-full="images/gallery-1.jpg" />
-        <img src="images/gallery-2.jpg" alt="Soft waves with subtle highlights" data-full="images/gallery-2.jpg" />
-        <img src="images/gallery-3.jpg" alt="Polished manicure with neutral finish" data-full="images/gallery-3.jpg" />
-        <img src="images/gallery-4.jpg" alt="Detailed layered haircut" data-full="images/gallery-4.jpg" />
-        <img src="images/gallery-5.jpg" alt="Glossed brunette style" data-full="images/gallery-5.jpg" />
-        <img src="images/gallery-6.jpg" alt="Textured style with movement" data-full="images/gallery-6.jpg" />
+      <div class="gallery-carousel reveal" aria-label="NeverEndz salon gallery carousel">
+        <button type="button" class="gallery-control prev" aria-label="View previous image">‹</button>
+
+        <div class="gallery-stage js-lightbox-gallery" aria-live="polite">
+          <img src="images/gallery-1.jpg" alt="Dimensional blonde hair color" data-full="images/gallery-1.jpg" class="active" />
+          <img src="images/gallery-2.jpg" alt="Soft waves with subtle highlights" data-full="images/gallery-2.jpg" />
+          <img src="images/gallery-3.jpg" alt="Polished manicure with neutral finish" data-full="images/gallery-3.jpg" />
+          <img src="images/gallery-4.jpg" alt="Detailed layered haircut" data-full="images/gallery-4.jpg" />
+          <img src="images/gallery-5.jpg" alt="Glossed brunette style" data-full="images/gallery-5.jpg" />
+          <img src="images/gallery-6.jpg" alt="Textured style with movement" data-full="images/gallery-6.jpg" />
+        </div>
+
+        <button type="button" class="gallery-control next" aria-label="View next image">›</button>
+      </div>
+
+      <div class="gallery-thumbs" aria-label="Choose a gallery image">
+        <button type="button" class="is-active" data-slide="0" aria-label="Show image 1"></button>
+        <button type="button" data-slide="1" aria-label="Show image 2"></button>
+        <button type="button" data-slide="2" aria-label="Show image 3"></button>
+        <button type="button" data-slide="3" aria-label="Show image 4"></button>
+        <button type="button" data-slide="4" aria-label="Show image 5"></button>
+        <button type="button" data-slide="5" aria-label="Show image 6"></button>
       </div>
 
       <p class="muted tiny centered" style="margin-top: 18px;">
