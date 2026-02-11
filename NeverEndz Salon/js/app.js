@@ -1,3 +1,31 @@
+const header = document.querySelector('.header');
+const navToggle = document.querySelector('.burger');
+const navLinks = document.getElementById('nav-links');
+
+if (header && navToggle && navLinks) {
+  navToggle.addEventListener('click', () => {
+    const isOpen = header.classList.toggle('nav-open');
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+    navToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+  });
+
+  navLinks.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      header.classList.remove('nav-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Open navigation menu');
+    });
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 860) {
+      header.classList.remove('nav-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Open navigation menu');
+    }
+  });
+}
+
 // ==========================================
 // NeverEndz Salon – Shared front-end scripts
 // ==========================================

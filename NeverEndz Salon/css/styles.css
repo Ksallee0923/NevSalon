@@ -38,13 +38,29 @@ a {
   color: inherit;
 }
 
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 img {
   max-width: 100%;
   display: block;
 }
 
 .container {
-  width: min(1100px, 92%);
+  width: min(1100px, 94%);
   margin-inline: auto;
 }
 
@@ -58,39 +74,45 @@ header {
   border-bottom: 1px solid var(--border);
 }
 
-nav,
-.nav-links {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  padding: 18px 0;
-}
-
-nav a,
-.nav-links a {
-  text-decoration: none;
-  color: var(--primary);
-  font-size: 0.95rem;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-nav a:hover,
-.nav-links a:hover {
-  color: var(--primary-dark);
-}
 
 .header .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
-  min-height: 76px;
+  gap: 12px;
+  min-height: 72px;
+  padding: 10px 0;
 }
 
-.nav--center {
-  justify-content: center !important;
+.nav-links {
+  display: none;
+  width: 100%;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  padding: 10px 0 4px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--primary);
+  font-size: 0.98rem;
+  font-weight: 500;
+  transition: color 0.2s ease, background 0.2s ease;
+  padding: 10px 12px;
+  border-radius: 12px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-links a:hover {
+  color: var(--primary-dark);
+  background: var(--surface-soft);
+}
+
+.header.nav-open .nav-links {
+  display: flex;
 }
 
 .logo {
@@ -123,12 +145,14 @@ nav a:hover,
 }
 
 .burger {
-  display: none;
   border: 1px solid var(--border);
   background: var(--surface);
   color: var(--primary);
-  border-radius: 10px;
-  padding: 7px 10px;
+  border-radius: 12px;
+  padding: 10px 12px;
+  min-height: 44px;
+  font-size: 0.95rem;
+  font-weight: 600;
   cursor: pointer;
 }
 
@@ -145,6 +169,7 @@ nav a:hover,
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 600;
+  min-height: 44px;
   transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
@@ -210,10 +235,12 @@ nav a:hover,
   margin-bottom: 12px;
 }
 
+
 .hero p,
 .lead {
   font-size: 1rem;
   max-width: 760px;
+  margin-inline: auto;
 }
 
 .hero-content p,
@@ -240,7 +267,7 @@ main {
 
 section,
 .section {
-  padding: 72px 20px;
+  padding: 56px 16px;
 }
 
 section h2 {
@@ -554,35 +581,89 @@ footer,
 }
 
 /* ---------- RESPONSIVE ---------- */
-@media (max-width: 880px) {
-  .header .nav {
-    flex-wrap: wrap;
-    padding: 14px 0;
+@media (min-width: 640px) {
+  .container {
+    width: min(1100px, 92%);
   }
 
-  .nav-links {
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-    border-top: 1px solid var(--border);
-    padding-top: 12px;
+  section,
+  .section {
+    padding: 64px 20px;
   }
 
-  .footer-grid {
-    flex-direction: column;
-    text-align: center;
+  .hero .buttons {
+    width: auto;
+  }
+
+  .hero .buttons a {
+    flex: 0 1 auto;
   }
 }
 
-@media (max-width: 560px) {
-  nav,
-  .nav-links {
-    gap: 12px;
-    padding: 14px 0;
+@media (min-width: 860px) {
+  .header .nav {
+    gap: 20px;
+    min-height: 76px;
+    justify-content: center;
+    padding: 0;
   }
 
+  .burger {
+    display: none;
+  }
+
+  .nav-links {
+    display: flex;
+    width: auto;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 0;
+  }
+
+  .nav-links a {
+    padding: 6px 0;
+    min-height: auto;
+    border-radius: 0;
+  }
+
+  .home-highlights {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .gallery-carousel {
+    grid-template-columns: auto 1fr auto;
+    gap: 14px;
+  }
+
+  .gallery-control {
+    width: 44px;
+    max-width: none;
+    height: 44px;
+    font-size: 1.7rem;
+  }
+
+  .gallery-control.prev,
+  .gallery-stage,
+  .gallery-control.next {
+    order: initial;
+  }
+
+  .footer-grid {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .footer-actions {
+    width: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 859px) {
   .hero {
-    min-height: 58vh;
+    min-height: 56vh;
   }
 
   .gallery-carousel {
