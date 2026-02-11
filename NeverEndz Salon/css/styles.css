@@ -135,8 +135,19 @@ nav a:hover,
 
 .btn--ghost,
 .secondary-btn {
-  background: rgba(255, 255, 255, 0.86);
-  border-color: rgba(255, 255, 255, 0.8);
+  background: #fff;
+  border-color: var(--border);
+  color: var(--primary-deep);
+}
+
+.hero .secondary-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.72);
+  color: #fff;
+}
+
+.hero .secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
   color: #fff;
 }
 
