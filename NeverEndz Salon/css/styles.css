@@ -2,112 +2,428 @@
    NeverEndz Salon – Global Styles
 ================================ */
 
+:root {
+  --bg: #f7efe3;
+  --bg-2: #efe3d1;
+  --surface: #ffffff;
+  --surface-soft: #fff9f1;
+  --text: #2b2b2b;
+  --muted: #666;
+  --primary: #7a3db8;
+  --primary-dark: #5f2d95;
+  --accent: #d79a5b;
+  --border: #ecdcc7;
+  --shadow: 0 12px 32px rgba(51, 27, 17, 0.12);
+  --radius: 16px;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+html,
 body {
-  font-family: "Georgia", serif;
-  background: #fbf4e8;
-  color: #2b2b2b;
+  width: 100%;
+}
+
+body {
+  font-family: "Poppins", "Georgia", serif;
+  background:
+    radial-gradient(1200px 500px at 50% -120px, rgba(122, 61, 184, 0.11), transparent 60%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+  color: var(--text);
   line-height: 1.6;
 }
 
-/* ---------- NAV ---------- */
-nav {
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: min(1100px, 92%);
+  margin-inline: auto;
+}
+
+/* ---------- HEADER / NAV ---------- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(250, 244, 235, 0.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+nav,
+.nav-links {
   display: flex;
   justify-content: center;
-  gap: 24px;
-  padding: 20px 0;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 0;
 }
 
-nav a {
+nav a,
+.nav-links a {
   text-decoration: none;
-  color: #7a3db8;
-  font-size: 14px;
+  color: var(--primary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
 }
 
-nav a:hover {
-  text-decoration: underline;
+nav a:hover,
+.nav-links a:hover {
+  color: var(--primary-dark);
+}
+
+.header .nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 76px;
+}
+
+.nav--center {
+  justify-content: center !important;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-mark {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), #a766e3);
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.logo-text {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.logo-text em {
+  color: var(--primary);
+  font-style: normal;
+}
+
+.burger {
+  display: none;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--primary);
+  border-radius: 10px;
+  padding: 7px 10px;
+  cursor: pointer;
+}
+
+/* ---------- BUTTONS ---------- */
+.btn,
+.book-btn,
+.secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 10px 18px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.btn:hover,
+.book-btn:hover,
+.secondary-btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn--primary,
+.book-btn,
+.nav-book {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn--ghost,
+.secondary-btn {
+  border-color: var(--border);
+  color: var(--primary);
+  background: #fff;
 }
 
 /* ---------- HERO ---------- */
 .hero {
-  min-height: 80vh;
+  min-height: 68vh;
   background: url("../images/neverendz-sign.jpg") center/cover no-repeat;
-  display: flex;
+  display: grid;
   align-items: center;
-  justify-content: center;
   position: relative;
+  isolation: isolate;
+  overflow: hidden;
 }
 
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45);
+  background: linear-gradient(0deg, rgba(17, 9, 25, 0.28), rgba(17, 9, 25, 0.46));
+  z-index: -1;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 180px;
+  background: linear-gradient(180deg, rgba(247, 239, 227, 0) 0%, rgba(247, 239, 227, 0.95) 100%);
+  z-index: -1;
+}
+
+.hero-content,
+.hero .container {
+  width: min(900px, 92%);
+  margin-inline: auto;
+}
+
+.hero .container {
+  color: #fff;
 }
 
 .hero-content {
-  position: relative;
   text-align: center;
   color: #fff;
-  max-width: 700px;
-  padding: 20px;
+  padding: 96px 20px 28px;
+  text-shadow: 0 3px 12px rgba(20, 11, 30, 0.45);
 }
 
-.hero h1 {
-  font-size: 42px;
+.hero h1,
+.display {
+  font-family: "Playfair Display", "Georgia", serif;
+  font-size: clamp(2rem, 5vw, 3.3rem);
+  line-height: 1.16;
   margin-bottom: 12px;
+  color: #fff8fb;
+  text-shadow: 0 4px 16px rgba(20, 11, 30, 0.55);
 }
 
-.hero p {
-  font-size: 16px;
-  margin-bottom: 20px;
+.hero p,
+.hero .lead {
+  font-size: 1rem;
+  max-width: 760px;
+  color: #f6ebff;
+  text-shadow: 0 2px 8px rgba(20, 11, 30, 0.45);
 }
 
-.hero .buttons a {
-  display: inline-block;
-  margin: 0 8px;
-  padding: 10px 18px;
-  border-radius: 20px;
-  font-size: 14px;
-  text-decoration: none;
+.lead {
+  color: var(--text);
 }
 
-.book-btn {
-  background: #d79a5b;
-  color: #fff;
+.hero-content p,
+.hero-content .lead {
+  margin-inline: auto;
 }
 
-.secondary-btn {
-  border: 1px solid #fff;
-  color: #fff;
+.hero .stack {
+  padding-top: 84px;
 }
 
-/* ---------- SECTIONS ---------- */
-section {
-  padding: 80px 20px;
-  text-align: center;
+.hero .buttons {
+  margin-top: 22px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hero--sub {
+  min-height: 50vh;
+}
+
+/* ---------- LAYOUT HELPERS ---------- */
+main {
+  display: block;
+}
+
+section,
+.section {
+  padding: 72px 20px;
+  position: relative;
 }
 
 section h2 {
-  font-size: 28px;
+  font-family: "Playfair Display", "Georgia", serif;
+  font-size: 1.7rem;
+  margin-bottom: 10px;
+}
+
+section p,
+.section p {
+  max-width: 760px;
+}
+
+.stack {
+  display: grid;
+}
+
+.gap-2 {
+  gap: 0.8rem;
+}
+
+.row {
+  display: flex;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.centered {
+  text-align: center;
+  justify-content: center;
+  margin-inline: auto;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.tiny {
+  font-size: 0.85rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.chip--soft {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+}
+
+/* ---------- CARDS / GRIDS ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+  width: min(1100px, 92%);
+  margin-inline: auto;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: var(--shadow);
+}
+
+.card h3,
+.card h2 {
+  margin-bottom: 8px;
+}
+
+.card--soft {
+  background: var(--surface-soft);
+}
+
+.stylist-card .card {
+  text-align: center;
+}
+
+.stylist-card .card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 12px;
   margin-bottom: 12px;
 }
 
-section p {
-  max-width: 650px;
-  margin: 0 auto;
-  font-size: 15px;
+/* ---------- PRICING ---------- */
+.pricing-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.pricing-column h2 {
+  margin-bottom: 10px;
+}
+
+.pricing-list {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.pricing-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 9px;
+  border-bottom: 1px dashed var(--border);
+}
+
+.section-cta {
+  margin-top: 28px;
+  display: grid;
+  gap: 14px;
+}
+
+
+.contact-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.contact-list {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  margin: 12px 0 18px;
+}
+
+.contact-list a {
+  color: var(--primary-dark);
+  text-decoration: none;
+}
+
+.contact-list a:hover {
+  text-decoration: underline;
 }
 
 /* ---------- GALLERY ---------- */
 .gallery {
-  max-width: 500px;
-  margin: 60px auto;
+  max-width: 700px;
+  margin: 32px auto 0;
   position: relative;
 }
 
@@ -131,20 +447,135 @@ section p {
   font-size: 20px;
   padding: 8px 12px;
   cursor: pointer;
+  border-radius: 10px;
 }
 
 .gallery .prev {
-  left: -45px;
+  left: 10px;
 }
 
 .gallery .next {
-  right: -45px;
+  right: 10px;
+}
+
+.masonry-grid {
+  columns: 3 220px;
+  column-gap: 16px;
+}
+
+.masonry-grid img {
+  width: 100%;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  break-inside: avoid;
+  cursor: zoom-in;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.82);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 60;
+}
+
+.lightbox img {
+  max-width: min(900px, 100%);
+  max-height: 90vh;
+  border-radius: 12px;
+}
+
+.lightbox.is-open {
+  display: flex;
+}
+
+
+.address-link {
+  color: var(--primary-dark);
+  text-decoration: none;
+}
+
+.address-link:hover {
+  text-decoration: underline;
+}
+
+.booking-panel {
+  width: min(760px, 92%);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.booking-panel p {
+  margin: 0 auto 18px;
 }
 
 /* ---------- FOOTER ---------- */
-footer {
+footer,
+.footer {
+  margin-top: 30px;
   text-align: center;
-  padding: 30px 0;
-  font-size: 12px;
-  color: #666;
+  padding: 28px 20px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+.footer-grid {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.footer-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-bottom {
+  margin-top: 14px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 880px) {
+  .header .nav {
+    flex-wrap: wrap;
+    padding: 14px 0;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+  }
+
+  .footer-grid {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 560px) {
+  nav,
+  .nav-links {
+    gap: 12px;
+    padding: 14px 0;
+  }
+
+  .hero {
+    min-height: 58vh;
+  }
+
+  section,
+  .section {
+    padding: 56px 16px;
+  }
 }

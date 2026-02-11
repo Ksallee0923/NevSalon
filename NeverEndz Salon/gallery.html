@@ -1,39 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Gallery – NeverEndz Salon</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gallery — NeverEndz Salon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-
-<nav>
-  <a href="index.html">Home</a>
-  <a href="services.html">Services</a>
-  <a href="stylists.html">Stylists</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="book.html">Book</a>
-</nav>
-
-<section>
-  <h2>Our Work</h2>
-  <p>Soft color, dimensional hair, and polished details.</p>
-
-  <div class="gallery">
-    <button class="prev" onclick="prevSlide()">‹</button>
-
-    <img src="images/gallery-1.jpg" alt="Hair color" class="active">
-    <img src="images/gallery-2.jpg" alt="Hair waves">
-    <img src="images/gallery-3.jpg" alt="Nails">
-    <img src="images/gallery-4.jpg" alt="Hair detail">
-    <img src="images/gallery-5.jpg" alt="Style finish">
-
-    <button class="next" onclick="nextSlide()">›</button>
+<header class="header">
+  <div class="container nav nav--center">
+    <nav class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="stylists.html">Stylists</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+      <a class="btn btn--primary nav-cta" href="https://kayla693h.setmore.com/kayla" target="_blank" rel="noopener">Book Now</a>
+    </nav>
   </div>
-</section>
+</header>
 
-<footer>
-  NeverEndz Salon · Florence, KY
+<main>
+  <section class="hero hero--sub">
+    <div class="container">
+      <div class="stack gap-2 reveal">
+        <span class="chip chip--soft">Gallery</span>
+        <h1 class="display">Fresh looks from the salon floor.</h1>
+        <p class="lead">
+          Real cuts, color, and finishing details from recent appointments at NeverEndz.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="masonry-grid js-lightbox-gallery reveal">
+        <img src="images/gallery-1.jpg" alt="Dimensional blonde hair color" data-full="images/gallery-1.jpg" />
+        <img src="images/gallery-2.jpg" alt="Soft waves with subtle highlights" data-full="images/gallery-2.jpg" />
+        <img src="images/gallery-3.jpg" alt="Polished manicure with neutral finish" data-full="images/gallery-3.jpg" />
+        <img src="images/gallery-4.jpg" alt="Detailed layered haircut" data-full="images/gallery-4.jpg" />
+        <img src="images/gallery-5.jpg" alt="Glossed brunette style" data-full="images/gallery-5.jpg" />
+        <img src="images/gallery-6.jpg" alt="Textured style with movement" data-full="images/gallery-6.jpg" />
+      </div>
+
+      <p class="muted tiny centered" style="margin-top: 18px;">
+        For daily updates and openings, follow us on
+        <a href="https://www.facebook.com/search/top?q=neverendz%20salon" target="_blank" rel="noopener">Facebook</a>.
+      </p>
+    </div>
+  </section>
+</main>
+
+<div id="lb" class="lightbox" aria-hidden="true">
+  <img id="lb-img" alt="Expanded gallery photo" />
+</div>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <strong>NeverEndz Salon</strong>
+      <p class="muted tiny"><a class="address-link" href="https://maps.google.com/?q=7413+U.S.+42+%234+Florence+KY+41042" target="_blank" rel="noopener">7413 U.S. 42 #4, Florence, KY 41042</a></p>
+    </div>
+    <div class="footer-actions">
+      <a href="https://www.facebook.com/search/top?q=neverendz%20salon" class="btn btn--ghost tiny" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://maps.google.com/?q=7413+U.S.+42+%234+Florence+KY+41042" class="btn btn--ghost tiny" target="_blank" rel="noopener">Get Directions</a>
+      <a href="https://kayla693h.setmore.com/kayla" target="_blank" rel="noopener" class="btn btn--primary tiny">Book online</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="muted tiny">© <span id="year"></span> NeverEndz Salon.</span>
+  </div>
 </footer>
 
 <script src="js/app.js"></script>
